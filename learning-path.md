@@ -16,6 +16,8 @@ SFT with correct loss masking, DPO + one variant (SimPO or KTO), reward modeling
 
 **Build:** SFT a 0.5–7B model with TRL or axolotl → train a reward model on UltraFeedback → DPO it → evaluate with an LLM judge and try to detect reward hacking (length, sycophancy). Write up what broke.
 
+*Course spine (Phase 1 → early Phase 2):* the PKU course 《大语言模型后训练实践》 (https://posttrain.gaozhijun.me/docs/, in Chinese) sequences this phase as five runnable TRL labs on Qwen3-1.7B — SFT/QLoRA, SFT data engineering with an ablation, a controlled DPO-vs-SimPO experiment, and a GRPO "mini R1-Zero" on GSM8K that doubles as a rehearsal for the PostTrainBench cell. Use it as the weekly structure for Phase 1; keep the RM build, the Session A eval/decontamination kit, and the Phase-2 eval checklist as the depth layer where the course is theory-only or judge-centric. Detail: `findings/2026-10-17-pku-posttraining-course.md`.
+
 *Cluster variant (8× H200):* full-parameter SFT of an 8B model head-to-head against the LoRA run, and an 8B reward model — labs C1/C2 in `labs/cluster-labs-h200.md`.
 
 *Slot-in candidate:* BaiZe (single-A100 tokenizer→DPO codebase) as a Phase 0.5 / early Phase 1 whole-pipeline read — see `findings/` when filed.
@@ -25,6 +27,8 @@ SFT with correct loss masking, DPO + one variant (SimPO or KTO), reward modeling
 GRPO (DeepSeekMath), DeepSeek-R1, DAPO, Dr. GRPO; RLVR with verifiable rewards; reward-hacking science (Weng).
 
 **Build:** GRPO run on math (TRL `GRPOTrainer` or `verifiers`) — reproduce the Dr. GRPO length-bias observation yourself; then try one DAPO fix (e.g., decoupled clip). Use `labs/phase-2-eval-checklist.md` for state-based, repeated-trial eval before trusting any checkpoint.
+
+The PKU course's Lecture 4 (RLHF pipeline → GRPO → DAPO/Dr. GRPO, plus its tools survey) is the reading companion for this phase's first GRPO run; its §4.4 decision rules are the briefing for cluster lab C3 (when TRL stops being enough and verl takes over).
 
 *Cluster variant (8× H200):* GRPO at 7–14B with verl + vLLM rollouts and a PostTrainBench cell at the benchmark's native 10 h single-GPU fidelity — labs C3/C4 in `labs/cluster-labs-h200.md`.
 

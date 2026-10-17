@@ -17,4 +17,4 @@ Plus cost-per-dependable-success. Failure analysis leaned toward tool handling a
 
 ## Filed as
 - Reading list item 09 (`reading-list.md`)
-- Distilled into `labs/phase-2-eval-checklist.md` (2026-10-06, requested by Ran)
+- Distilled into `labs/phase-2-eval-checklist.md` (2026-10-06)

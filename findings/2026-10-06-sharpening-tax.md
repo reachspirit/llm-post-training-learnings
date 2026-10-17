@@ -11,10 +11,10 @@
 - Their explanation, in their words, is that post-training pushes tasks toward "two extremes, always solved or never solved."
 - They propose posterior-tempered group sampling (PTGS), a Bayesian sampler that adapts temperature per prompt by estimated difficulty, and report that it reduces the tax versus a fixed-temperature baseline.
 
-## Why this matters for Ran's path
+## Why this matters here
 - Directly relevant to the Phase 2 GRPO/verifier work: GRPO optimization can polarize task solvability, improving efficiency and consistency while shrinking the set of tasks the model can ever solve under sampling.
 - Connects straight to the ThinkingBox three-view framing already in the learning path (single-attempt success, at-least-once breadth, all-20 consistency). Sharpening Tax is the pass@K version of the same measurement instinct.
-- For Ran's Phase 2 labs, this suggests tracking pass@K alongside pass@1 and watching whether training is expanding or collapsing the solvable set over time.
+- For the Phase 2 labs here, this suggests tracking pass@K alongside pass@1 and watching whether training is expanding or collapsing the solvable set over time.
 
 ## Practical next step
 Add pass@K and task-polarization tracking to the Phase 2 GRPO lab protocol:

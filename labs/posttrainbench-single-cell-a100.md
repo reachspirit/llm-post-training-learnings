@@ -1,9 +1,9 @@
 # Lab Brief — PostTrainBench, One Cell, One A100
 
-**Purpose:** Reproduce the *shape* of a PostTrainBench run at Ran's scale — not the 28-cell benchmark. One base × one target, ~10 hours on 1× A100 80GB, checkpoint + provenance at the end.
+**Purpose:** Reproduce the *shape* of a PostTrainBench run at single-GPU scale — not the 28-cell benchmark. One base × one target, ~10 hours on 1× A100 80GB, checkpoint + provenance at the end.
 
 **Constraint translation (read first)**
-- Benchmark budget: 10 h on 1× H100 80GB. Ran's guarantee: 1× A100 80GB, 10–15 h/week.
+- Benchmark budget: 10 h on 1× H100 80GB. Local constraint: 1× A100 80GB, ~10 h per lab block.
 - Same VRAM class, materially lower training throughput on A100. Planning rule: keep the benchmark's 10 h wall-clock discipline, but shrink tokens/steps to fit — start with the 1.7B base and LoRA/QLoRA before attempting a 3–4B full run. Do not assume "10 H100-hours = 10 A100-hours" of training tokens.
 - Official full benchmark is cluster/Modal-shaped (HTCondor reference; Harbor adapter on Modal per repo README). This brief is a local single-cell adaptation using the same prompt rules and eval logic, not a claim of an official leaderboard submission.
 
@@ -18,7 +18,7 @@
 **Alternate (pick one only if tool-use is the point): SmolLM3-3B-Base or Gemma-3-4B-PT × BFCL**
 - This is where targeted agents beat official instruct models — and where the contamination trap lives (a dataset split labelled "train" containing eval data). Only take this cell if you explicitly want the Phase 2 state/tool-checking angle, and audit every data source before training.
 
-Avoid for a first cell: AIME 2025, GPQA, ArenaHard-Writing — paper shows minimal movement in 10 h; low signal per Ran-hour.
+Avoid for a first cell: AIME 2025, GPQA, ArenaHard-Writing — paper shows minimal movement in 10 h; low signal per lab-hour.
 
 ## 10-hour run plan
 
@@ -55,10 +55,10 @@ Copy per checkpoint (extends `labs/phase-2-eval-checklist.md`):
 - **Cost:** GPU-hours (+ API cost if any)
 - **Decision:** keep / iterate data / iterate hyperparams / stage-2 GRPO / stop
 
-## What success looks like for Ran
-Not a leaderboard number. A clean, auditable single-cell run where: baseline → SFT v_n improves the target, coverage does not silently collapse, the checkpoint passes the terminal-state checks above, and the whole thing fits in one 10–15 h week on the guaranteed A100. That is a Phase 1→2 bridge lab with an external reference point (PostTrainBench paper: best controlled agent 23.2% weighted avg vs 51.1% official instruct — expect to beat base, not to match human post-training).
+## What success looks like
+Not a leaderboard number. A clean, auditable single-cell run where: baseline → SFT v_n improves the target, coverage does not silently collapse, the checkpoint passes the terminal-state checks above, and the whole thing fits in one ~10 h lab block on a single A100. That is a Phase 1→2 bridge lab with an external reference point (PostTrainBench paper: best controlled agent 23.2% weighted avg vs 51.1% official instruct — expect to beat base, not to match human post-training).
 
-## Open decision for Ran
+## Open decisions
 1. Cell choice: GSM8K primary (recommended) vs BFCL alternate.
 2. Whether to file PostTrainBench in `reading-list.md` (Core/Additions) or leave as a finding only.
 3. Local-only run vs investigating the repo's Harbor/Modal adapter for a closer-to-official setup.

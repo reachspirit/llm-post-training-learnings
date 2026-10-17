@@ -2,8 +2,7 @@
 
 Personal learning tracker for LLM post-training — papers, labs, eval notes, and new findings as they land.
 
-**Owner:** Ran ([@reachspirit](https://github.com/reachspirit))  
-**Context:** Senior SWE (recommender systems + ML infrastructure) building toward staff-level LLM post-training expertise. 10–15 hrs/week. Guaranteed compute: 1× A100 80GB (8× H100 is aspirational, not assumed).
+**Context:** A personal learning tracker for LLM post-training — papers, findings, and hands-on labs, sized for a single A100 80GB.
 
 ## What's here
 
@@ -36,4 +35,4 @@ Interactive companion: the LLM Post-Training Learning Path page (built 2026-09-2
 
 ## License / visibility
 
-Public repository — visibility and name confirmed 2026-10-16: `reachspirit/llm-post-training-learnings`. First push is pending completion of the GitHub connection.
+Public repository. Content is kept free of personal details.

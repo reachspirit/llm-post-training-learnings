@@ -1,5 +1,5 @@
 # DRAFT — Phase 2 GRPO logging addendum (Sharpening Tax)
-Status: drafted 2026-10-09, pending Ran's approval. Source: arXiv:2610.01509 (verified read).
+Status: drafted 2026-10-09, pending approval. Source: arXiv:2610.01509 (verified read).
 
 ## Why
 ThinkingBox's checklist already asks for pass@1 / pass@20 breadth / 20-20 dependability. Sharpening Tax adds the base-anchored version: is training *shrinking the set of tasks the model can ever solve*, even while pass@1 rises? Cheap to log now, expensive to reconstruct later.

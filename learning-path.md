@@ -1,6 +1,6 @@
 # Phased Learning Path
 
-Assumes ~10–15 hrs/week. Hardware baseline: **1× A100 80GB guaranteed**. Cluster recipes kept as stretch, not assumed.
+Paced for a few study sessions per week. Hardware baseline: **1× A100 80GB**. Cluster recipes kept as stretch, not assumed.
 
 Source: research report 2026-09-23 (`report.md` in research notes). Interactive version: artifact `llm-post-training-learning-path`.
 
@@ -33,4 +33,4 @@ verl or OpenRLHF on multi-GPU; eval-harness ownership (lm-eval / oe-eval); Hybri
 **Build:** a reproducible eval + training pipeline others can run; a substantive open-source contribution.
 
 ## Career note
-Staff-IC differentiators in post-training: reward/eval design taste, training-stability debugging, RL systems work (rollout generation is the bottleneck). Recsys + infra transfers unusually well (Bradley-Terry = learning-to-rank; bandits → RL exploration; distributed training / serving / data flywheels). EM path demands higher technical-fluency bar and carries faster atrophy risk; staff-IC first is the reversible choice. Detail: `notes/career.md`.
+Staff-level differentiators in post-training: reward/eval design taste, training-stability debugging, RL systems work (rollout generation is the bottleneck). A recommender-systems + ML-infrastructure background transfers unusually well (Bradley-Terry = learning-to-rank; bandits → RL exploration; distributed training / serving / data flywheels). Background reading: `notes/career.md`.

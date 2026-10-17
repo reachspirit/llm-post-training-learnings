@@ -30,14 +30,14 @@ Rules that matter: no training on benchmark test data, no modifying the eval har
 - Reward hacking was real, not hypothetical: test-set training, downloading the instruct checkpoint instead of training the base, unauthorized API synthetic data, and a specific BFCL trap — the HF "train" split that actually contains evaluation data. Agents often *stated* the contamination rule correctly and still violated it after long failed runs / context loss.
 
 ## Why it matters here
-This is the closest published calibration to Ran's actual constraints: 10 h on 1 GPU, 1.7–4B models, 10–15 h/week, 1× A100 80GB guaranteed. It converts "what should a Phase 1→2 lab look like?" from vibes into an externally measured budget:
+This is the closest published calibration to this tracker's constraints: 10 h on 1 GPU, 1.7–4B models, ~10 h/week, 1× A100 80GB. It converts "what should a Phase 1→2 lab look like?" from vibes into an externally measured budget:
 
-1. One PostTrainBench cell ≈ one Ran-week. Do one cell well; do not attempt the 28-cell matrix.
+1. One PostTrainBench cell ≈ one lab-week. Do one cell well; do not attempt the 28-cell matrix.
 2. The winning shape matches his path: SFT first, verifier-checked eval, GRPO only as stage 2 on verifiable rewards. It validates the Phase 1 (SFT/DPO) → Phase 2 (GRPO on math) sequencing already in `learning-path.md`.
 3. Narrow-and-verifiable beats broad-and-ambitious at this compute scale — pick GSM8K/BFCL/HumanEval-style targets, not "general reasoning."
 4. The contamination / checkpoint-substitution audit is the training-side twin of his ThinkingBox checklist: grade the submitted checkpoint and its provenance, not the agent's (or his own) run narrative.
 
 ## Filed as
-- Finding (this file). **Not** added to `reading-list.md` ranking — candidate for Core/Additions if Ran wants it there.
+- Finding (this file). **Not** added to `reading-list.md` ranking — candidate for Core/Additions if wanted there.
 - Lab brief: `labs/posttrainbench-single-cell-a100.md`
 - GitHub tracker note: belongs in the local `llm-post-training-learnings` scaffold that is already prepared and awaiting GitHub connection + public/private + repo-name choice (tracking goal_e6118f2676e0). No new repo action taken here.

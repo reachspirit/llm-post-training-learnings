@@ -2,7 +2,7 @@
 
 **Prepared:** 2026-10-09 (Fri evening, America/Los_Angeles) for the weekend of Sat 2026-10-10 – Sun 2026-10-11 / week of Mon 2026-10-12.
 **Source brief:** `labs/posttrainbench-single-cell-a100.md` (filed 2026-10-07). This sheet operationalizes that brief; it does not change its recommendations.
-**Budget fit:** ~10 h of run time inside Ran's 10–15 h/week budget, on the guaranteed 1× A100 80GB. A100 ≠ H100 throughput: keep the benchmark's 10 h wall-clock discipline, shrink tokens/steps, start with LoRA/QLoRA at 1.7B — do not assume token parity with the H100 reference.
+**Budget fit:** ~10 h of run time inside a ~10 h weekly lab budget, on a single 1× A100 80GB. A100 ≠ H100 throughput: keep the benchmark's 10 h wall-clock discipline, shrink tokens/steps, start with LoRA/QLoRA at 1.7B — do not assume token parity with the H100 reference.
 
 ## Why this cell first
 - Verifiable exact-match reward on GSM8K — directly reusable in a Phase 2 GRPO stage.
@@ -39,7 +39,7 @@
 - **Method:** SFT (LoRA/QLoRA/full) → optional GRPO
 - **Wall time used / remaining:**
 - **pass@1 (GSM8K):**
-- **pass@K + never-solved fraction:** _(optional — fields from `labs/phase-2-grpo-logging-addendum-draft.md`, which is still a DRAFT pending Ran's approval from the 2026-10-10 message; logging them here is cheap, merging them into the protocol is his call)_
+- **pass@K + never-solved fraction:** _(optional — fields from `labs/phase-2-grpo-logging-addendum-draft.md`, which is still a DRAFT pending approval; logging them here is cheap, merging them into the protocol is a separate decision)_
 - **Data sources + decontamination check:**
 - **GPU-hours:**
 - **Decision:** keep / iterate data / iterate hyperparams / stage-2 GRPO / stop
